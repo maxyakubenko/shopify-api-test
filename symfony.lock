@@ -2,6 +2,9 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
     },
+    "dflydev/dot-access-data": {
+        "version": "v1.1.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -84,6 +87,21 @@
     "egulias/email-validator": {
         "version": "2.1.22"
     },
+    "guzzlehttp/guzzle": {
+        "version": "6.5.5"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.6.1"
+    },
+    "jms/metadata": {
+        "version": "2.3.0"
+    },
+    "jms/serializer": {
+        "version": "3.9.0"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -123,11 +141,20 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
         "version": "1.1.3"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
+    },
+    "robwittman/shopify-php-sdk": {
+        "version": "v2.4.1"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -140,6 +167,12 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "slince/di": {
+        "version": "3.1.2"
+    },
+    "slince/shopify-api-php": {
+        "version": "2.5.0"
     },
     "symfony/asset": {
         "version": "v5.1.6"
