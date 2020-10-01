@@ -21,13 +21,13 @@ class ShopifyApi
         ]);
     }
 
-    public function getProducts()
+    public function getProducts(array $options)
     {
-        return $this->apiClient->getProductManager()->findAll();
+        return $this->apiClient->getProductManager()->findAll($options);
     }
 
     public function getCollections()
     {
-        return $this->apiClient->getCollectManager()->findAll();
+        return $this->apiClient->getCustomCollectionManager()->findAll();
     }
 }

@@ -23,6 +23,11 @@ class Collection
     private $title;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $api_id;
+
+    /**
      * @ORM\Column(name="dateCreatedAt", type="datetime", nullable=true)
      */
     private $dateCreatedAt;
@@ -33,24 +38,13 @@ class Collection
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\LessonSection", inversedBy="lessons")
-     * @ORM\JoinColumn(name="id_section", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="collections")
      */
-    private $section;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $vendor;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $productType;
+    private $products;
 
     public function __construct()
     {
-        $this->elements = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     /**
@@ -77,6 +71,30 @@ class Collection
     public function setTitle($title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApiId()
+    {
+        return $this->api_id;
+    }
+
+    /**
+     * @param mixed $api_id
+     */
+    public function setApiId($api_id): void
+    {
+        $this->api_id = $api_id;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+        }
+        return $this;
     }
 
     /**
@@ -109,53 +127,5 @@ class Collection
     public function setDescription($description): void
     {
         $this->description = $description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSection()
-    {
-        return $this->section;
-    }
-
-    /**
-     * @param mixed $section
-     */
-    public function setSection($section): void
-    {
-        $this->section = $section;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVendor()
-    {
-        return $this->vendor;
-    }
-
-    /**
-     * @param mixed $vendor
-     */
-    public function setVendor($vendor): void
-    {
-        $this->vendor = $vendor;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProductType()
-    {
-        return $this->productType;
-    }
-
-    /**
-     * @param mixed $productType
-     */
-    public function setProductType($productType): void
-    {
-        $this->productType = $productType;
     }
 }
