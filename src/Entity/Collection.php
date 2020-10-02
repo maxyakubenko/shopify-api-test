@@ -33,11 +33,6 @@ class Collection
     private $dateCreatedAt;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $description;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="collections")
      */
     private $products;
@@ -116,16 +111,8 @@ class Collection
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getProducts()
     {
-        return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description): void
-    {
-        $this->description = $description;
+        return $this->products;
     }
 }

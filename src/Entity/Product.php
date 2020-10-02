@@ -29,6 +29,11 @@ class Product
     private $title;
 
     /**
+     * @ORM\Column( type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
      * @ORM\Column(name="dateCreatedAt", type="datetime", nullable=true)
      */
     private $dateCreatedAt;
@@ -82,6 +87,22 @@ class Product
     public function setApiId($api_id): void
     {
         $this->api_id = $api_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
     }
 
     /**

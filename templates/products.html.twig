@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% block body %}
+    {% for product in products %}
+        <h2>{{ product.title }}</h2><br>
+        {% if product.image %}
+             <img src="{{ product.image }}" height="800" width="700"><br>
+        {% endif %}
+            <a><strong>Дата создания:</strong> {{ product.dateCreatedAt.format('Y-m-d H:i:s') }}</a><br>
+            <a><strong>Описание:</strong> {{ product.description|raw }}</a><br>
+            <a><strong>Вендор:</strong> {{ product.vendor }}</a><br>
+            <a><strong>Тип:</strong> {{ product.productType }}</a>
+            <p></p>
+            {% endfor %}
+{% endblock %}
+</body>
+</html>
